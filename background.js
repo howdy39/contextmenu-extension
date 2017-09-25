@@ -1,8 +1,11 @@
 console.log('background.js');
 
 chrome.contextMenus.create({
-    title: "all",
+    title: "コンテキストメニューを追加",
     contexts: ["all"],
+    onclick: function (info) {
+        console.log(info);
+    }
 });
 
 // chrome.contextMenus.create({
