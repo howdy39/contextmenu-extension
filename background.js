@@ -1,30 +1,107 @@
 console.log('background.js');
 
 chrome.contextMenus.create({
-    title: "このページのドメイン名を whois で検索",
-    contexts: ["selection"],
-    onclick: function(info, tab) {
-        var url = info.pageUrl;
-        var host = url.replace(/https?:\/\/([^\/]+).*/, "$1");
-        var tree = host.split(".");
-        var parts = tree.length;
-
-        var domain;
-        if (parts == 1) {
-            alert("ドメイン名を取得できません。");
-            return;
-        } else if (parts == 2) { 
-            domain = host;
-        } else if (tree[parts - 1].length >= 3) {
-            domain = tree[parts - 2] + '.' + tree[parts - 1];
-        } else if (tree[parts - 2].length == 2) {
-            domain = tree[parts - 3] + '.' + tree[parts - 2] + '.' + tree[parts - 1];
-        } else {
-            domain = tree[parts - 2] + '.' + tree[parts - 1];;
-        }
-
-        chrome.tabs.create({
-            url: "http://akagi.jp/whois/?#!/key=" + domain
-        });
-    }
+    title: "all",
+    contexts: ["all"],
 });
+
+// chrome.contextMenus.create({
+//     title: "all-normal",
+//     contexts: ["all"],
+//     type: "normal"
+// });
+
+// chrome.contextMenus.create({
+//     title: "all-checkbox1",
+//     contexts: ["all"],
+//     type: "checkbox"
+// });
+// chrome.contextMenus.create({
+//     title: "all-checkbox2",
+//     contexts: ["all"],
+//     type: "checkbox"
+// });chrome.contextMenus.create({
+//     title: "all-checkbox3",
+//     contexts: ["all"],
+//     type: "checkbox"
+// });
+// chrome.contextMenus.create({
+//     title: "all-radio1",
+//     contexts: ["all"],
+//     type: "radio"
+// });
+// chrome.contextMenus.create({
+//     title: "all-radio2",
+//     contexts: ["all"],
+//     type: "radio"
+// });
+// chrome.contextMenus.create({
+//     title: "all-radio3",
+//     contexts: ["all"],
+//     type: "radio"
+// });
+
+// chrome.contextMenus.create({
+//     title: "all-separator",
+//     contexts: ["all"],
+//     type: "separator"
+// });
+
+
+// chrome.contextMenus.create({
+//     title: "page",
+//     contexts: ["page"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "frame",
+//     contexts: ["frame"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "selection",
+//     contexts: ["selection"],
+//     onclick: function(info) {
+//         console.log(info);
+//     }
+// });
+
+// chrome.contextMenus.create({
+//     title: "link",
+//     contexts: ["link"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "editable",
+//     contexts: ["editable"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "image",
+//     contexts: ["image"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "video",
+//     contexts: ["video"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "audio",
+//     contexts: ["audio"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "launcher",
+//     contexts: ["launcher"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "browser_action",
+//     contexts: ["browser_action"],
+// });
+
+// chrome.contextMenus.create({
+//     title: "page_action",
+//     contexts: ["page_action"],
+// });
